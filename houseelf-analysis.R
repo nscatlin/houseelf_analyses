@@ -74,7 +74,7 @@ Size_GC_percents <- data.frame(Size = c("Large", "Small"), Mean_GC_content = c(G
 
 ###class
 get_data <- function(){
-  ata <- read.csv("surveys.csv")
+  data <- read.csv("surveys.csv")
   return(data)
 }
 
@@ -86,6 +86,9 @@ get_size_class <- function(weight, threshold){
   }
   return(size_class)
 }
+
+#4 for Git Homework
+
 
 
 
