@@ -165,3 +165,4 @@ get_size_class <- function(seq){
    return(ear_lengths)
 }
 
+df_id_lengthclass_gc <- 
