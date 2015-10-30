@@ -53,14 +53,25 @@ elf <- add_size_content(elf)
 
 #Adding GC Content
 add_gc_content <- function(df){
-  elf_gc_content <- 
+  elf_gc_content_fun <- 
     df %>% 
     na.omit() %>% 
     rowwise() %>% 
     mutate(gc_percent=elf_gc_content_fun(elfdnaseq))
-  return(elf_gc_content)
+  return(elf_gc_content_fun)
 }  
+
 elf <- add_gc_content(elf)
+
+
+# elf_gc_content_fun <- function(sequence){
+#   G_count <- (str_count(sequence, 'g') + str_count(sequence, 'G'))
+#   C_count <- (str_count(sequence,'c') + str_count(sequence, 'C'))
+#   GC <- ((G_count + C_count)/str_length(sequence))*100
+#   return(GC)
+# }
+# 
+
 
 subset <- subset(elf, select=c("id", "size", "GC_percents"))
 
@@ -114,6 +125,16 @@ for (line in elfdnaseq){
 
 
 ##class 2015_10_30
+# Git
+# 
+# Local repository
+# 
+# make changes and then commit them back to our local repository.
+# 
+# If you see origin popping up, it's talking about GitHubs repository that you are trying to remote to.
+# 
+# git remote add origin https://github.com/nscatlin/houseelf_analyses.git
+# git push -u origin master
 
 library(dplyr)
 
@@ -140,8 +161,7 @@ add_size_class <- function(){
   return(data_w_size_class)
 }
 
-
-
+#7, Pulling from GitHub
 
 
 
