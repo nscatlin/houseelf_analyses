@@ -92,6 +92,8 @@ get_size_class <- function(weight, threshold){
 get_data(elf)
 file.rename("data/houseelf_earlength_dna_data.csv", "data/houseelf_earlength_dna_data1.csv")
 
+#5
+
 
 
 
