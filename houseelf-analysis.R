@@ -159,10 +159,18 @@ add_size_class <- function(){
 
 #7, Pulling from GitHub
 
-get_size_class <- function(seq){
+gc_content <- function(seq){
    #Calculate the GC-content for one or more sequences
    ear_lengths <- ifelse(seq > 10, "large", "small")
    return(ear_lengths)
 }
 
-df_id_lengthclass_gc <- 
+df_id_lengthclass_gc <-  subset(elf, select=c("id", "size", "GC_percents"))
+
+#Subsetting data and sending it to a CSV
+write.csv(elf_subset, file = "grangers_analysis.csv", row.names=FALSE)
+
+GC_content_large <- mean(subset$GC_percents[subset$size == "large"])
+GC_content_small <- mean(subset$GC_percents[subset$size == "small"])
+
+Size_GC_percents <- data.frame(Size = c("Large", "Small"), Mean_GC_content = c(GC_content_large, GC_content_small))
