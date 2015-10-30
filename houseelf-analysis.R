@@ -2,8 +2,9 @@
 
 library(dplyr)
 library(ggplot2)
-
+library(stringr)
 #Import the data using a function
+setwd("~/Documents/UF_Fall_2015/Data_Carpentry/git/")
 elf <- read.csv("data/houseelf_earlength_dna_data.csv",header=TRUE)
 earlength <- elf$earlength
 elfdnaseq <- elf$dnaseq
@@ -74,7 +75,7 @@ Size_GC_percents <- data.frame(Size = c("Large", "Small"), Mean_GC_content = c(G
 
 ###class
 get_data <- function(){
-  data <- read.csv("surveys.csv")
+  data <- read.csv("data/houseelf_earlength_dna_data.csv")
   return(data)
 }
 
@@ -88,10 +89,8 @@ get_size_class <- function(weight, threshold){
 }
 
 #4 for Git Homework
-
-
-
-
+get_data(elf)
+file.rename("data/houseelf_earlength_dna_data.csv", "data/houseelf_earlength_dna_data1.csv")
 
 
 
