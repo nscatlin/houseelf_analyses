@@ -1,10 +1,8 @@
 # This analysis adds a size and GC column to elf data
-
 library(dplyr)
 library(ggplot2)
-library(stringr)
+
 #Import the data using a function
-setwd("~/Documents/UF_Fall_2015/Data_Carpentry/git/")
 elf <- read.csv("data/houseelf_earlength_dna_data.csv",header=TRUE)
 earlength <- elf$earlength
 elfdnaseq <- elf$dnaseq
@@ -50,7 +48,6 @@ add_size_content <- function(df){
   return(elf_ear_size)
 }  
 elf <- add_size_content(elf)
-
 #Adding GC Content
 add_gc_content <- function(df){
   elf_gc_content_fun <- 
@@ -82,8 +79,6 @@ GC_content_large <- mean(subset$GC_percents[subset$size == "large"])
 GC_content_small <- mean(subset$GC_percents[subset$size == "small"])
 
 Size_GC_percents <- data.frame(Size = c("Large", "Small"), Mean_GC_content = c(GC_content_large, GC_content_small))
-
-
 ###class
 get_data <- function(){
   data <- read.csv("data/houseelf_earlength_dna_data.csv")
