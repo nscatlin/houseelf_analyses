@@ -94,6 +94,54 @@ file.rename("data/houseelf_earlength_dna_data.csv", "data/houseelf_earlength_dna
 
 #5
 
+#6
+GC_content <- function(seq){
+  seq <- str_to_upper(seq)
+  G <- str_count(seq, 'G')
+  C <- str_count(sequence, 'C')
+  GC <- ((G + C)/str_length(seq))*100
+  return(GC)
+}
+
+
+for (line in elfdnaseq){
+  GC_elf <-  GC_content(line)
+  print(GC_elf)
+}
+
+
+
+
+
+##class 2015_10_30
+
+library(dplyr)
+
+get_data <- function(){
+  data <- read.csv("data/houseelf_earlength_dna_data.csv")
+  return(data)
+}
+
+get_size_class <- function(weight, threshold){
+  if (weight > threshold){
+    size_class <- "large"
+  } else {
+    size_class <- "small"
+  }
+  return(size_class)
+}
+
+add_size_class <- function(){
+  data_w_size_class <- 
+    df %>% 
+    na.omit() %>% 
+    rowwise() %>% #can work one row at a time and pass it thorugh our get_size function
+    mutate(size_class = get_size_class(weight,50))
+  return(data_w_size_class)
+}
+
+
+
 
 
 
