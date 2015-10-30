@@ -164,5 +164,9 @@ add_size_class <- function(){
 
 #7, Pulling from GitHub
 
-
+get_size_class <- function(seq){
+   #Calculate the GC-content for one or more sequences
+   ear_lengths <- ifelse(seq > 10, "large", "small")
+   return(ear_lengths)
+}
 
