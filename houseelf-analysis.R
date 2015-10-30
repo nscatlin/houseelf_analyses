@@ -98,7 +98,7 @@ file.rename("data/houseelf_earlength_dna_data.csv", "data/houseelf_earlength_dna
 GC_content <- function(seq){
   seq <- str_to_upper(seq)
   G <- str_count(seq, 'G')
-  C <- str_count(sequence, 'C')
+  C <- str_count(seq, 'C')
   GC <- ((G + C)/str_length(seq))*100
   return(GC)
 }
